@@ -16,6 +16,7 @@ public class User {
     private String username;
     private String password;
     private String name;
+    @Column(unique = true, nullable = false)
     private String email;
     private String role; // e.g., ADMIN, EDITOR, VIEWER
 }
