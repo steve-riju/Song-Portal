@@ -11,6 +11,7 @@ import com.cba.songportal.repository.UserRepository;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
@@ -105,11 +106,39 @@ public class ExportController {
         writer.flush();
     }
 
-    // Helper function to escape special characters for SQL
+   
+
+     @GetMapping("/users/sql")
+    public void exportUsersToSQL(HttpServletResponse response) throws IOException {
+        response.setContentType("application/sql");
+        response.setHeader("Content-Disposition", "attachment; filename=users.sql");
+
+        List<User> users = userRepository.findAll();
+        PrintWriter writer = new PrintWriter(response.getOutputStream(), true, StandardCharsets.UTF_8);
+
+        for (User user : users) {
+            String insert = String.format(
+                "INSERT INTO user (username, password, name, email, role) " +
+                "VALUES ('%s', '%s', '%s', '%s', '%s');",
+                escapeSql(user.getUsername()),
+                escapeSql(user.getPassword()),
+                escapeSql(user.getName()),
+                escapeSql(user.getEmail()),
+                escapeSql(user.getRole())
+            );
+            writer.println(insert);
+        }
+
+        writer.flush();
+    }
+
+     // Helper function to escape special characters for SQL
     private String escapeSql(String input) {
-        if (input == null)
-            return "";
-        return input.replace("'", "''").replace("\n", "\\n").replace("\r", "");
+        if (input == null) return "";
+        return input.replace("'", "''")
+                    .replace("\n", "\\n")
+                    .replace("\r", "")
+                    .trim();
     }
 
 }
