@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Add New Song</title>
+<link rel="stylesheet" href="../styles/style.css" />
+<link rel="stylesheet" href="../styles/admin-add-song.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+</head>
+<body>
+	<header>
+		<h1>Add New Song</h1>
+	</header>
+	<div class="container">
+		<button onclick="goBack()" class="material-back-btn">
+			<span class="material-icons">arrow_back</span> Back
+		</button>
+		<!-- <h2>Add New Song</h2> -->
+		<form id="addSongForm">
+			<label>Title:</label> <input type="text" name="title" required /> <label>Song
+				No:</label> <input type="number" name="songNo" required /> <label>Category:</label>
+			<select name="category" required>
+				<option value="">-- Select Category --</option>
+
+				<!-- Group 1 -->
+				<option value="സ്തോത്ര ഗീതങ്ങൾ">സ്തോത്ര ഗീതങ്ങൾ</option>
+				<option value="ആരാധനാഗീതങ്ങൾ">ആരാധനാഗീതങ്ങൾ</option>
+				<option value="കഷ്ട്ടാനുഭവ ഗീതങ്ങൾ">കഷ്ട്ടാനുഭവ ഗീതങ്ങൾ</option>
+				<option value="തിരുവത്താഴം">തിരുവത്താഴം</option>
+				<option value="ദൈവസ്നേഹം">ദൈവസ്നേഹം</option>
+				<option value="ക്രിസ്തു മാഹാത്മ്യം">ക്രിസ്തു മാഹാത്മ്യം</option>
+				<option value="ദൈവകൃപ">ദൈവകൃപ</option>
+				<option value="പൊതുയോഗ ഗീതങ്ങൾ">പൊതുയോഗ ഗീതങ്ങൾ</option>
+				<option value="സാക്ഷ്യ ഗീതങ്ങൾ">സാക്ഷ്യ ഗീതങ്ങൾ</option>
+				<option value="സമർപ്പണം">സമർപ്പണം</option>
+				<option value="ദൈവവചനം">ദൈവവചനം</option>
+				<option value="ക്രിസ്തീയ ജീവിതം">ക്രിസ്തീയ ജീവിതം</option>
+
+				<!-- Group 2 -->
+				<option value="ആശ്വാസ ഗീതങ്ങൾ">ആശ്വാസ ഗീതങ്ങൾ</option>
+				<option value="ആശ്രയം">ആശ്രയം</option>
+				<option value="ക്രിസ്തുവും സഭയും">ക്രിസ്തുവും സഭയും</option>
+				<option value="ഉപദേശ ഗീതങ്ങൾ">ഉപദേശ ഗീതങ്ങൾ</option>
+				<option value="പുനരാഗമന ഗീതങ്ങൾ">പുനരാഗമന ഗീതങ്ങൾ</option>
+				<option value="പ്രത്യാശാഗീതങ്ങൾ">പ്രത്യാശാഗീതങ്ങൾ</option>
+				<option value="സുവിശേഷവേല-ആഹ്വാനം">സുവിശേഷവേല-ആഹ്വാനം</option>
+				<option value="സുവിശേഷ ഗീതങ്ങൾ">സുവിശേഷ ഗീതങ്ങൾ</option>
+				<option value="പ്രാർത്ഥനാഗീതങ്ങൾ">പ്രാർത്ഥനാഗീതങ്ങൾ</option>
+				<option value="പ്രഭാത ഗീതങ്ങൾ">പ്രഭാത ഗീതങ്ങൾ</option>
+				<option value="സന്ധ്യാകീർത്തനങ്ങൾ">സന്ധ്യാകീർത്തനങ്ങൾ</option>
+
+				<!-- Group 3 -->
+				<option value="സ്നാന ശുശ്രൂഷാഗീതങ്ങൾ">സ്നാന ശുശ്രൂഷാഗീതങ്ങൾ</option>
+				<option value="വിവാഹ ഗീതങ്ങൾ">വിവാഹ ഗീതങ്ങൾ</option>
+				<option value="ബാലജന ഗീതങ്ങൾ">ബാലജന ഗീതങ്ങൾ</option>
+				<option value="സമാപന ഗീതങ്ങൾ">സമാപന ഗീതങ്ങൾ</option>
+				<option value="ഹിന്ദി ഗാനങ്ങൾ">ഹിന്ദി ഗാനങ്ങൾ</option>
+				<option value="ഇംഗ്ലീഷ് ഗാനങ്ങൾ">ഇംഗ്ലീഷ് ഗാനങ്ങൾ</option>
+				<option value="അനുബന്ധം">അനുബന്ധം</option>
+				<option value="Other">Other</option>
+			</select> <label>Lyrics (Malayalam):</label>
+			<textarea name="lyricsMalayalam" rows="8" required></textarea>
+
+			<label>Lyrics (Manglish):</label>
+			<textarea name="lyricsManglish" rows="8" required></textarea>
+
+			<label>Author:</label> <input type="text" name="author" />
+
+			<button type="submit">Add Song</button>
+		</form>
+
+		<p id="statusMessage"></p>
+	</div>
+
+	<script src="../scripts/admin-add-song.js"></script>
+</body>
+</html>

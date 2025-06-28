@@ -1,0 +1,59 @@
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+}
+
+th {
+  background-color: #f8f8f8;
+}
+
+.pagination {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 8px 16px;
+  margin: 0 5px;
+  font-size: 1rem;
+}
+
+
+.material-back-btn {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 16px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.material-back-btn .material-icons {
+  font-size: 22px;
+  vertical-align: middle;
+}
+
+.material-back-btn:hover {
+  background-color: #e0e0e0;
+}
+
+

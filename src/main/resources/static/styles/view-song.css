@@ -1,0 +1,160 @@
+body {
+  font-family: 'Noto Sans Malayalam', sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  color: #222;
+}
+
+header {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 20px;
+}
+
+.controls {
+  margin-bottom: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.controls button {
+  padding: 8px 16px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.controls button:hover {
+  background-color: #004b99;
+}
+
+.back-btn {
+  background-color: #ff66cc;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin: 20px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.back-btn:hover {
+  background-color: #e055b4;
+}
+.scroll-btn {
+  background-color: #00bcd4;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.scroll-btn:hover {
+  background-color: #0097a7;
+}
+#speedSlider {
+  vertical-align: middle;
+  margin: 0 10px;
+  width: 150px;
+}
+
+
+
+.lyrics {
+  font-size: 22px;
+  line-height: 1.8;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+footer {
+  background-color: #003366;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 40px;
+}
+
+/* Chorus & Stanza */
+
+.chorus {
+  background-color: #331f4c;        /* darker purple for contrast */
+  color: #fff;                      /* white text */
+  padding: 16px 24px;
+  border-left: 6px solid #ff66cc;   /* vibrant pink accent */
+  margin: 24px 0;
+  border-radius: 8px;
+  /*font-size: 1.1rem;*/
+}
+.chorus p {
+  margin: 6px 0;
+  line-height: 1.6;
+}
+
+.stanza {
+  margin: 20px 0;
+}
+
+.stanza p {
+  margin: 5px 0 0;
+}
+
+.author {
+  text-align: right;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 40px;
+  color: #444;
+}
+
+/* Presentation Mode */
+body.presentation-mode {
+  background-color: black;
+  color: white;
+}
+
+body.presentation-mode header,
+body.presentation-mode footer,
+body.presentation-mode .controls {
+  display: none !important;
+}
+
+body.presentation-mode main {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+body.presentation-mode .lyrics {
+  font-size: 36px;
+  text-align: center;
+  color: white;
+  background: none;
+  box-shadow: none;
+  padding: 60px;
+}
+
+
+body.presentation-mode .lyrics::after {
+  content: "Press Esc to exit presentation mode";
+  display: block;
+  font-size: 20px;
+  margin-top: 20px;
+  color: #ccc;
+}

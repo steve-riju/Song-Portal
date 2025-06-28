@@ -1,0 +1,75 @@
+
+
+.container {
+	max-width: 700px;
+	margin: auto;
+	background: white;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+}
+
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+}
+
+label {
+	font-weight: bold;
+}
+
+input[type="text"], input[type="number"], select, textarea {
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	width: 100%;
+}
+
+button {
+	padding: 10px;
+	background-color: #003366;
+	color: white;
+	border: none;
+	cursor: pointer;
+	border-radius: 4px;
+}
+
+button:hover {
+	background-color: #0055a5;
+}
+
+#statusMessage {
+	margin-top: 15px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.material-back-btn {
+	background-color: transparent;
+	border: none;
+	color: #333;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 6px 12px;
+	border-radius: 4px;
+	transition: background-color 0.2s;
+}
+
+.material-back-btn .material-icons {
+	font-size: 20px;
+	vertical-align: middle;
+}
+
+.material-back-btn:hover {
+	background-color: #e0e0e0;
+}
+
+.container {
+	margin-top: 10px; /* Prevent overlap with fixed header */
+}

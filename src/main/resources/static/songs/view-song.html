@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<title>View Song</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap"
+	rel="stylesheet">
+<link rel="stylesheet" href="../styles/view-song.css">
+</head>
+<body>
+	<header>
+		<div class="container">
+			<h1 id="songTitle">Song Title</h1>
+			<p id="songMeta">Song No: — | Category: —</p>
+		</div>
+	</header>
+
+	<main class="container">
+
+		<div class="controls">
+			<button id="langBtn" onclick="switchLanguage()">Switch to
+				English</button>
+			<button onclick="togglePresentation()">Toggle Presentation</button>
+			<button onclick="changeFontSize(2)">A+</button>
+			<button onclick="changeFontSize(-2)">A-</button>
+		</div>
+		<button onclick="goBack()" class="back-btn">← Back to List</button>
+		<button onclick="toggleAutoScroll()" class="scroll-btn">Auto
+			Scroll</button>
+		<label for="speedSlider">Scroll Speed:</label> <input type="range"
+			id="speedSlider" min="0.4" max="10" step="0.1" value="0.4" /> <span
+			id="speedValue">0.4</span> px/frame
+
+		<div id="lyricsContainer" class="lyrics" lang="ml">Loading
+			lyrics...</div>
+		<button onclick="goBack()" class="back-btn">← Back to List</button>
+		<button onclick="toggleAutoScroll()" class="scroll-btn">On/Off
+			Auto Scroll</button>
+	</main>
+
+	<footer>
+		<div class="container">© 2025 Christian Brethren Assembly,
+			Valakom</div>
+	</footer>
+
+	<script src="../scripts/view-song.js"></script>
+</body>
+</html>

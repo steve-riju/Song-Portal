@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manage Users</title>
+  <link rel="stylesheet" href="../styles/manage-users.css" />
+  <link rel="stylesheet" href="../styles/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h1>Manage Users</h1>
+  </header>
+
+  <main class="container">
+  <button onclick="goBack()" class="material-back-btn">
+			<span class="material-icons">arrow_back</span> Back
+		</button>
+    <div class="top-bar">
+      <div class="search-group">
+        <input type="text" id="searchInput" placeholder="Search by name or email..." />
+        <button onclick="searchUsers()">Search</button>
+      </div>
+      <button onclick="openAddModal()">➕ Add User</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTable">
+        <tr><td colspan="4">No users loaded.</td></tr>
+      </tbody>
+    </table>
+
+    <p class="status" id="statusMessage"></p>
+  </main>
+
+<!-- Add/Edit Modal -->
+<div class="modal" id="userModal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">×</span>
+    <h3 id="modalTitle">Add User</h3>
+    <form id="userForm">
+      <input type="hidden" name="id" />
+      <label>Name:</label>
+      <input type="text" name="name" required />
+      <label>Email:</label>
+      <input type="email" name="email" required />
+      <label>Role:</label>
+      <select name="role" required>
+        <option value="">-- Select Role --</option>
+        <option value="ADMIN">Admin</option>
+        <option value="EDITOR">Editor</option>
+        <option value="VIEWER">Viewer</option>
+      </select>
+
+      <p class="info" style="font-size: 0.9em; color: #555; margin-top: 10px;">
+        ⚠️ <strong>Note:</strong> Username and Password will be set to the entered Email by default.
+      </p>
+
+      <button type="submit">Save</button>
+    </form>
+  </div>
+</div>
+
+
+  <script src="../scripts/manage-users.js"></script>
+</body>
+</html>

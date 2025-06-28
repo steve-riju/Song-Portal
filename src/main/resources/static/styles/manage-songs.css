@@ -1,0 +1,112 @@
+.top-bar {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	margin-bottom: 20px;
+}
+
+.search-group {
+	display: flex;
+	gap: 8px;
+}
+
+.btn {
+	padding: 10px 16px;
+	font-size: 15px;
+	background-color: #0066cc;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background-color: #004c99;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-top: 15px;
+}
+
+th, td {
+	padding: 10px;
+	border-bottom: 1px solid #ccc;
+	text-align: left;
+}
+
+.actions button {
+	margin-right: 5px;
+}
+
+.status {
+	margin-top: 10px;
+	font-weight: bold;
+	color: green;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+	background: #fff;
+	margin: 2% auto; /* Less top margin for taller modal */
+	padding: 30px; /* More padding for spacious form */
+	width: 95%; /* Increased width */
+	max-width: 900px; /* Larger max width */
+	max-height: 90vh; /* Ensure it doesn’t overflow vertically */
+	overflow-y: auto; /* Scroll inside modal if content overflows */
+	border-radius: 8px;
+	position: relative;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content textarea, .modal-content input, .modal-content select {
+	width: 100%;
+	margin: 8px 0;
+	padding: 8px;
+}
+
+.close-btn {
+	position: absolute;
+	top: 10px;
+	right: 15px;
+	font-size: 18px;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+
+.material-back-btn {
+	background-color: transparent;
+	border: none;
+	color: #333;
+	font-size: 16px;
+	font-weight: 500;
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	padding: 10px 16px;
+	border-radius: 4px;
+	transition: background-color 0.2s;
+}
+
+.material-back-btn .material-icons {
+	font-size: 22px;
+	vertical-align: middle;
+}
+
+.material-back-btn:hover {
+	background-color: #e0e0e0;
+}

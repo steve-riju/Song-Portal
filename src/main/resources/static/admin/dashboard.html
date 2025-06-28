@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Song Portal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/dashboard.css">
+  <link rel="stylesheet" href="../styles/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+  <h1>Admin Dashboard</h1>
+  <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+</header>
+
+
+  <main class="container">
+
+    <!-- Navigation Buttons -->
+    <section class="dashboard-actions">
+      <button onclick="location.href='admin-add-song.html'">➕ Add Song</button>
+      <button onclick="location.href='manage-songs.html'">🎵 Manage Songs</button>
+      <button onclick="location.href='manage-users.html'">👤 Manage Users</button>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+      <div class="card" id="totalSongsCard">
+        <h2>Total Songs</h2>
+        <p id="totalSongs">Loading...</p>
+      </div>
+    </section>
+
+    <!-- Recently Added -->
+    <section class="recent">
+      <h3>Recently Added Songs</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Song No</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Date Added</th>
+          </tr>
+        </thead>
+        <tbody id="recentSongsTable">
+          <tr><td colspan="5">Loading...</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Christian Brethren Assembly, Valakom</p>
+  </footer>
+
+  <script src="../scripts/common.js"></script>
+  <script src="../scripts/dashboard.js"></script>
+</body>
+</html>

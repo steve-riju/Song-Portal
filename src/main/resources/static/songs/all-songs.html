@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>All Songs - Christian Brethren Assembly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../styles/style.css" />
+  <link rel="stylesheet" href="../styles/all-songs.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1>All Songs</h1>
+      
+    </div>
+  </header>
+
+  <main class="container">
+  <button onclick="goBack()" class="material-back-btn">
+			<span class="material-icons">arrow_back</span> Back
+		</button>
+    <section>
+      <table>
+        <thead>
+          <tr>
+            <th>Song No</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+          </tr>
+        </thead>
+        <tbody id="songsTable">
+          <tr><td colspan="4">Loading songs...</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <div class="pagination">
+      <button onclick="prevPage()">⏮ Prev</button>
+      <span id="pageInfo">Page 1</span>
+      <button onclick="nextPage()">Next ⏭</button>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2025 Christian Brethren Assembly, Valakom
+    </div>
+  </footer>
+
+  <script src="../scripts/all-songs.js"></script>
+</body>
+</html>

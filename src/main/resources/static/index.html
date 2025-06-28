@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ml">
+<head>
+<meta charset="UTF-8">
+<title>Christian Brethren Assembly</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Malayalam Font -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap"
+	rel="stylesheet">
+
+<!-- External CSS -->
+<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+	<header>
+		<div class="container">
+			<h1>Christian Brethren Assembly, Valakom</h1>
+			<p>കർത്താവിന്റെ മഹത്വം പാടാം</p>
+		</div>
+	</header>
+
+	<nav>
+		<div class="container nav-links">
+			<a href="index.html">Home</a> <a href="songs/all-songs.html">All
+				Songs</a> <a href="#categories">Categories</a> <a
+				href="admin/admin-login.html">Admin Login</a>
+		</div>
+	</nav>
+
+	<main class="container">
+		<section class="search-section">
+			<h2>Search Songs</h2>
+			<div class="search-box">
+				<form id="searchForm">
+
+					<input type="text" id="searchInput"
+						placeholder="Search by title, lyrics or song number..." required />
+					<button id="searchBtn">Search</button>
+				</form>
+			</div>
+		</section>
+
+		<section id="categories" class="category-section">
+			<h2>Content Index</h2>
+			<div class="category-grid">
+				<!-- Malayalam Category Buttons -->
+				<button class="category-btn">സ്തോത്ര ഗീതങ്ങൾ</button>
+				<button class="category-btn">ആരാധനാഗീതങ്ങൾ</button>
+				<button class="category-btn">കഷ്ട്ടാനുഭവ ഗീതങ്ങൾ</button>
+				<button class="category-btn">തിരുവത്താഴം</button>
+				<button class="category-btn">ദൈവസ്നേഹം</button>
+				<button class="category-btn">ക്രിസ്തു മാഹാത്മ്യം</button>
+				<button class="category-btn">ദൈവകൃപ</button>
+				<button class="category-btn">പൊതുയോഗ ഗീതങ്ങൾ</button>
+				<button class="category-btn">സാക്ഷ്യ ഗീതങ്ങൾ</button>
+				<button class="category-btn">സമർപ്പണം</button>
+				<button class="category-btn">ദൈവവചനം</button>
+				<button class="category-btn">ക്രിസ്തീയ ജീവിതം</button>
+				<button class="category-btn">ആശ്വാസ ഗീതങ്ങൾ</button>
+				<button class="category-btn">ആശ്രയം</button>
+				<button class="category-btn">ക്രിസ്തുവും സഭയും</button>
+				<button class="category-btn">ഉപദേശ ഗീതങ്ങൾ</button>
+				<button class="category-btn">പുനരാഗമന ഗീതങ്ങൾ</button>
+				<button class="category-btn">പ്രത്യാശാഗീതങ്ങൾ</button>
+				<button class="category-btn">സുവിശേഷവേല-ആഹ്വാനം</button>
+				<button class="category-btn">സുവിശേഷ ഗീതങ്ങൾ</button>
+				<button class="category-btn">പ്രാർത്ഥനാഗീതങ്ങൾ</button>
+				<button class="category-btn">പ്രഭാത ഗീതങ്ങൾ</button>
+				<button class="category-btn">സന്ധ്യാകീർത്തനങ്ങൾ</button>
+				<button class="category-btn">സ്നാന ശുശ്രൂഷാഗീതങ്ങൾ</button>
+				<button class="category-btn">വിവാഹ ഗീതങ്ങൾ</button>
+				<button class="category-btn">ബാലജന ഗീതങ്ങൾ</button>
+				<button class="category-btn">സമാപന ഗീതങ്ങൾ</button>
+				<button class="category-btn">ഹിന്ദി ഗാനങ്ങൾ</button>
+				<button class="category-btn">ഇംഗ്ലീഷ് ഗാനങ്ങൾ</button>
+				<button class="category-btn">അനുബന്ധം</button>
+				<button class="category-btn">Other</button>
+			</div>
+		</section>
+	</main>
+
+	<footer>
+		<div class="container">© 2025 Christian Brethren Assembly,
+			Valakom</div>
+	</footer>
+
+	<script>
+    // Redirect to search page with query
+    document.getElementById("searchForm").addEventListener("submit", function(e) {
+  e.preventDefault(); // stop normal form submission
+  const query = document.getElementById("searchInput").value.trim();
+  if (query) {
+    window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
+  }
+});
+
+    document.getElementById("searchBtn").addEventListener("click", () => {
+      const query = document.getElementById("searchInput").value.trim();
+      console.log(query);
+      if (query) {
+        window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+    
+    const searchInput = document.getElementById("searchInput");
+    const searchBtn = document.getElementById("searchBtn");
+
+    // Click Search on Enter key
+    searchInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        searchBtn.click();
+      }
+    });
+
+    // Search button click
+    searchBtn.addEventListener("click", () => {
+      const query = searchInput.value.trim();
+      console.log(query);
+      if (query) {
+        window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
+  </script>
+</body>
+</html>
