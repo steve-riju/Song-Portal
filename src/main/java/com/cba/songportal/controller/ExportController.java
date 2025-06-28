@@ -21,31 +21,34 @@ public class ExportController {
     @Autowired
     private UserRepository userRepository;
 
-    @GetMapping("/songs/csv")
-    public void exportSongsToCSV(HttpServletResponse response) throws Exception {
-        response.setContentType("text/csv");
-        response.setHeader("Content-Disposition", "attachment; filename=songs.csv");
+@GetMapping("/songs/csv")
+public void exportSongsToCSV(HttpServletResponse response) throws Exception {
+    response.setContentType("text/csv");
+    response.setHeader("Content-Disposition", "attachment; filename=songs.csv");
 
-        List<Song> songs = songRepository.findAll();
+    // Write UTF-8 BOM
+    response.getOutputStream().write(new byte[] {(byte)0xEF, (byte)0xBB, (byte)0xBF});
 
-        PrintWriter writer = response.getWriter();
-        writer.println("ID,Song No,Title,Category,Author,Lyrics Malayalam,Lyrics Manglish,Created At");
+    PrintWriter writer = new PrintWriter(response.getOutputStream(), true, java.nio.charset.StandardCharsets.UTF_8);
+    writer.println("ID,Song No,Title,Category,Author,Lyrics Malayalam,Lyrics Manglish,Created At");
 
-        for (Song song : songs) {
-            writer.printf("\"%d\",\"%d\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"%n",
-                    song.getId(),
-                    song.getSongNo(),
-                    escape(song.getTitle()),
-                    escape(song.getCategory()),
-                    escape(song.getAuthor()),
-                    escape(song.getLyricsMalayalam()),
-                    escape(song.getLyricsManglish()),
-                    song.getCreatedAt()
-            );
-        }
+    List<Song> songs = songRepository.findAll();
 
-        writer.flush();
+    for (Song song : songs) {
+        writer.printf("\"%d\",\"%d\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\"%n",
+                song.getId(),
+                song.getSongNo(),
+                escape(song.getTitle()),
+                escape(song.getCategory()),
+                escape(song.getAuthor()),
+                escape(song.getLyricsMalayalam()),
+                escape(song.getLyricsManglish()),
+                song.getCreatedAt()
+        );
     }
+
+    writer.flush();
+}
 
     @GetMapping("/users/csv")
     public void exportUsersToCSV(HttpServletResponse response) throws Exception {
