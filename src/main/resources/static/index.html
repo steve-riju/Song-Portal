@@ -124,6 +124,15 @@
         window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
       }
     });
+    
+    // Category clicking
+    document.querySelectorAll(".category-btn").forEach(button => {
+  button.addEventListener("click", () => {
+    const category = button.innerText.trim();
+    window.location.href = `songs/category.html?cat=${encodeURIComponent(category)}`;
+  });
+});
+
   </script>
 </body>
 </html>

@@ -19,6 +19,9 @@ public interface SongRepository extends JpaRepository<Song, Long> {
 	List<Song> findTopNByOrderByCreatedAtDesc(@Param("limit") int limit);
 	
 	List<Song> findAllByOrderBySongNoAsc();
+	
+	List<Song> findByCategory(String category);
+
 
 
 }

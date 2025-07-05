@@ -48,6 +48,12 @@ public class SongController {
 				.map(ResponseEntity::ok)
 				.orElse(ResponseEntity.notFound().build());
 	}
+	
+	@GetMapping("category")
+	public List<Song> getByCategory(@RequestParam String cat) {
+	    return songRepository.findByCategory(cat);
+	}
+
 
 
 	@GetMapping("/by-songno/{songNo}")
