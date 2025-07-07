@@ -56,4 +56,19 @@ th {
   background-color: #e0e0e0;
 }
 
+#totalSongsText {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.song-link {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.song-link:hover {
+  text-decoration: underline;
+}
 

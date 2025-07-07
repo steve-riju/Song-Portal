@@ -1,4 +1,4 @@
-const songApi = "/api/songs"; // Adjust this if your actual endpoint differs
+const songApi = "/api/songs";
 const songsPerPage = 25;
 let currentPage = 1;
 let allSongs = [];
@@ -8,10 +8,12 @@ function fetchSongs() {
     .then(res => res.json())
     .then(data => {
       allSongs = data;
+      document.getElementById("totalSongsText").innerText = `Total Songs: ${allSongs.length}`;
       renderSongs();
     })
     .catch(() => {
       document.getElementById("songsTable").innerHTML = "<tr><td colspan='4'>❌ Failed to load songs.</td></tr>";
+      document.getElementById("totalSongsText").innerText = "Total Songs: 0";
     });
 }
 
@@ -21,24 +23,26 @@ function renderSongs() {
   const pageSongs = allSongs.slice(start, end);
 
   const table = document.getElementById("songsTable");
+  table.innerHTML = "";
+
   if (!pageSongs.length) {
     table.innerHTML = "<tr><td colspan='4'>No songs to display.</td></tr>";
     return;
   }
 
-  table.innerHTML = "";
   pageSongs.forEach(song => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>${song.songNo}</td>
-      <td>${song.title}</td>
+      <td><a href="view-song.html?id=${song.songNo}" class="song-link">${song.title}</a></td>
       <td>${song.author || '-'}</td>
       <td>${song.category || '-'}</td>
     `;
     table.appendChild(row);
   });
 
-  document.getElementById("pageInfo").innerText = `Page ${currentPage} of ${Math.ceil(allSongs.length / songsPerPage)}`;
+  document.getElementById("pageInfo").innerText =
+    `Page ${currentPage} of ${Math.ceil(allSongs.length / songsPerPage)}`;
 }
 
 function nextPage() {
@@ -55,8 +59,8 @@ function prevPage() {
   }
 }
 
-window.onload = fetchSongs;
-
 function goBack() {
   window.history.back();
 }
+
+window.onload = fetchSongs;
