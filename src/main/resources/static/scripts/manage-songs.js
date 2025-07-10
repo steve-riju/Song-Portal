@@ -74,10 +74,26 @@ document.getElementById('editSongForm').addEventListener('submit', function (e) 
   let lyricsMalayalam = form.lyricsMalayalam.value.trim();
   const author = form.author.value.trim();
 
-  // ✅ Auto-append ---Author if not present and author exists
-  if (author && !lyricsMalayalam.endsWith(`---${author}`)) {
-    lyricsMalayalam += `\n---${author}`;
+  // ✅ Smart author tag handling
+  if (author) {
+    const lines = lyricsMalayalam.trim().split('\n');
+    const lastLine = lines[lines.length - 1].trim();
+
+    if (lastLine.startsWith('---')) {
+      const existingAuthor = lastLine.replace(/^---/, '').trim();
+      if (existingAuthor !== author) {
+        // Replace old author with new one
+        lines[lines.length - 1] = `---${author}`;
+      }
+      // else: author is same, do nothing
+    } else {
+      // No author tag at the end, so append
+      lines.push(`---${author}`);
+    }
+
+    lyricsMalayalam = lines.join('\n');
   }
+
 
   const songData = {
     title: form.title.value.trim(),
