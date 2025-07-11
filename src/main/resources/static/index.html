@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="ml">
 <head>
-<meta charset="UTF-8">
-<title>Christian Brethren Assembly</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<title>Christian Brethren Assembly, Valakom</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <!-- Malayalam Font -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+Malayalam&display=swap"
-	rel="stylesheet">
+	rel="stylesheet" />
 
 <!-- External CSS -->
-<link rel="stylesheet" href="styles/style.css">
+<link rel="stylesheet" href="styles/style.css" />
 </head>
 
 <body>
+
+	<!-- Header -->
 	<header>
 		<div class="container">
 			<h1>Christian Brethren Assembly, Valakom</h1>
 			<p>കർത്താവിന്റെ മഹത്വം പാടാം</p>
+			<p class="rotating-verse" id="rotatingVerse"></p>
+
 		</div>
 	</header>
 
+	<!-- Navigation -->
 	<nav>
 		<div class="container nav-links">
 			<a href="index.html">Home</a> <a href="songs/all-songs.html">All
 				Songs</a> <a href="#categories">Categories</a> <a
-				href="admin/admin-login.html">Admin Login</a>
+				href="about-contact.html">About</a> <a href="admin/admin-login.html">Admin
+				Login</a>
 		</div>
 	</nav>
 
+	<!-- Main Content -->
 	<main class="container">
 		<section class="search-section">
 			<h2>Search Songs</h2>
 			<div class="search-box">
 				<form id="searchForm">
-
 					<input type="text" id="searchInput"
 						placeholder="Search by title, lyrics or song number..." required />
 					<button id="searchBtn">Search</button>
@@ -46,7 +52,6 @@
 		<section id="categories" class="category-section">
 			<h2>Content Index</h2>
 			<div class="category-grid">
-				<!-- Malayalam Category Buttons -->
 				<button class="category-btn">സ്തോത്ര ഗീതങ്ങൾ</button>
 				<button class="category-btn">ആരാധനാഗീതങ്ങൾ</button>
 				<button class="category-btn">കഷ്ട്ടാനുഭവ ഗീതങ്ങൾ</button>
@@ -82,57 +87,64 @@
 		</section>
 	</main>
 
+	<!-- Footer -->
 	<footer>
-		<div class="container">© 2025 Christian Brethren Assembly,
-			Valakom</div>
+		<div class="container">
+			© 2025 Christian Brethren Assembly, Valakom<br /> <span
+				style="font-size: 13px; opacity: 0.8;">To God be the glory,
+				great things He has done.</span>
+		</div>
 	</footer>
 
+	<!-- Script -->
 	<script>
-    // Redirect to search page with query
     document.getElementById("searchForm").addEventListener("submit", function(e) {
-  e.preventDefault(); // stop normal form submission
-  const query = document.getElementById("searchInput").value.trim();
-  if (query) {
-    window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
-  }
-});
+      e.preventDefault();
+      const query = document.getElementById("searchInput").value.trim();
+      if (query) {
+        window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
+      }
+    });
 
     document.getElementById("searchBtn").addEventListener("click", () => {
       const query = document.getElementById("searchInput").value.trim();
-      console.log(query);
       if (query) {
         window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
       }
     });
-    
-    const searchInput = document.getElementById("searchInput");
-    const searchBtn = document.getElementById("searchBtn");
 
-    // Click Search on Enter key
-    searchInput.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        searchBtn.click();
-      }
-    });
-
-    // Search button click
-    searchBtn.addEventListener("click", () => {
-      const query = searchInput.value.trim();
-      console.log(query);
-      if (query) {
-        window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-    
-    // Category clicking
     document.querySelectorAll(".category-btn").forEach(button => {
-  button.addEventListener("click", () => {
-    const category = button.innerText.trim();
-    window.location.href = `songs/category.html?cat=${encodeURIComponent(category)}`;
-  });
-});
+      button.addEventListener("click", () => {
+        const category = button.innerText.trim();
+        window.location.href = `songs/category.html?cat=${encodeURIComponent(category)}`;
+      });
+    });
+    
+    const verses = [
+      '"The Lord is my shepherd; I shall not want." – Psalm 23:1',
+      '"Bless the LORD, O my soul, and all that is within me, bless his holy name!" – Psalm 103:1',
+      '"I will sing to the Lord all my life." – Psalm 104:33',
+      '"He put a new song in my mouth, a hymn of praise to our God." – Psalm 40:3',
+      '"Sing to the Lord, all the earth; proclaim his salvation day after day." – 1 Chronicles 16:23'
+    ];
+
+    let verseIndex = 0;
+    const verseEl = document.getElementById('rotatingVerse');
+
+    function updateVerse() {
+      verseEl.style.opacity = 0;
+      setTimeout(() => {
+        verseEl.textContent = verses[verseIndex];
+        verseEl.style.opacity = 1;
+        verseIndex = (verseIndex + 1) % verses.length;
+      }, 500);
+    }
+
+    updateVerse(); // initial
+    setInterval(updateVerse, 7000); // rotate every 7 seconds
+
 
   </script>
+  
 </body>
 </html>

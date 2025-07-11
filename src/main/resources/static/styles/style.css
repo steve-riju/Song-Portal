@@ -1,110 +1,268 @@
+:root {
+  --primary: #3a5a40;         /* Deep olive green for spiritual calm */
+  --secondary: #a3b18a;       /* Gentle sage for peace */
+  --accent: #fefae0;          /* Light parchment */
+  --highlight: #d4a373;       /* Warm gold tone */
+  --text: #2c2c2c;
+  --bg: #f9f7f1;
+  --border-radius: 12px;
+  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans Malayalam', 'Segoe UI', serif;
+}
+
 body {
-	margin: 0;
-	font-family: 'Noto Sans Malayalam', sans-serif;
-	background-color: #f7f9fc;
-	color: #333;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
 }
 
+/* ===== Header ===== */
 header {
-	background-color: #003366;
-	color: white;
-	padding: 20px 0;
-	text-align: center;
+  background: linear-gradient(to bottom, #234e70 5%, transparent),
+            url('../assets/images/bg.jpg');
+
+  background-repeat: no-repeat, repeat;
+  background-size: cover, auto;
+  background-position: center top, top left;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
+header h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+header p {
+  font-size: 16px;
+  margin: 5px 0;
+  opacity: 0.95;
+}
+
+header .verse {
+  margin-top: 10px;
+  font-size: 15px;
+  font-style: italic;
+  color: #f0f8ff;
+  opacity: 0.9;
+}
+
+header::after {
+  content: "";
+  background-image: url('../assets/images/Dove.jpg');
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 120px;
+  opacity: 0.28;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+}
+
+/* ===== Updated Navigation ===== */
 nav {
-	background-color: #004080;
-	padding: 10px 0;
+  background-color: var(--bg); /* Match page background */
+  padding: 10px 0;
+  position: relative;
 }
 
 .nav-links {
-	display: flex;
-	justify-content: center;
-	gap: 30px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
 }
 
 .nav-links a {
-	color: white;
-	text-decoration: none;
-	font-weight: bold;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .nav-links a:hover {
-	text-decoration: underline;
+  color: white;
+  background-color: var(--secondary);
 }
 
+
+
+/* ===== Container ===== */
 .container {
-	max-width: 1000px;
-	margin: auto;
-	padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 5px 0px;
 }
 
+main.container {
+  margin-top: 20px;
+}
+
+
+
+/* ===== Search Section ===== */
 .search-section {
-	text-align: center;
-	margin-bottom: 40px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.search-section h2 {
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 20px;
 }
 
 .search-box {
-	margin-top: 10px;
+  margin-top: 10px;
 }
 
 #searchInput {
-	padding: 10px;
-	width: 60%;
-	max-width: 400px;
-	font-size: 16px;
-	border: 1px solid #aaa;
-	border-radius: 5px;
+  padding: 12px;
+  width: 60%;
+  max-width: 420px;
+  border: 1px solid #ccc;
+  border-radius: var(--border-radius);
+  font-size: 16px;
+  background-color: #fff;
 }
 
 #searchBtn {
-	padding: 10px 16px;
-	font-size: 16px;
-	margin-left: 10px;
-	background-color: #0066cc;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+  padding: 12px 18px;
+  font-size: 16px;
+  margin-left: 10px;
+  background-color: var(--highlight);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 #searchBtn:hover {
-	background-color: #004c99;
+  background-color: #b2784a;
 }
 
+/* ===== Categories ===== */
 .category-section h2 {
-	margin-bottom: 20px;
-	text-align: center;
+  text-align: center;
+  font-size: 26px;
+  color: var(--primary);
+  margin-bottom: 30px;
 }
 
 .category-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
 }
 
 .category-btn {
-	padding: 12px;
-	font-size: 16px;
-	background-color: #e0ebf5;
-	border: none;
-	border-radius: 6px;
-	cursor: pointer;
-	transition: background-color 0.2s;
+  padding: 16px 20px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: var(--border-radius);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  color: #333;
 }
 
 .category-btn:hover {
-	background-color: #cfe2f3;
+  background-color: var(--highlight);
+  color: white;
+  transform: translateY(-3px);
 }
 
+/* ===== Footer ===== */
 footer {
-	background-color: #003366;
-	color: white;
-	text-align: center;
-	padding: 15px 0;
-	margin-top: 40px;
+  background-color: #3a5a40;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 25px 15px;
+  font-size: 14px;
+  margin-top: 60px;
 }
 
-footer p {
-	margin: 0;
+footer a {
+  color: #fdf6e3;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* ===== Fade Animation (optional) ===== */
+.category-btn,
+.search-box {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.category-btn:nth-child(odd) {
+  animation-delay: 0.2s;
+}
+.category-btn:nth-child(even) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  #searchInput {
+    width: 90%;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  header h1 {
+    font-size: 28px;
+  }
+
+  .category-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  }
+}
+
+.rotating-verse {
+  font-size: 15px;
+  font-style: italic;
+  color: #fefae0;
+  margin-top: 10px;
+  opacity: 0.88;
+  transition: opacity 0.5s ease;
+}
+
+.rotating-verse:hover {
+  opacity: 1;
 }
