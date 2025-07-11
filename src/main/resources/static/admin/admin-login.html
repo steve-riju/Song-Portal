@@ -1,30 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<title>Admin Login</title>
-<link rel="stylesheet" href="../styles/admin-login.css" />
-<link rel="stylesheet" href="../styles/style.css" />
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-	rel="stylesheet">
+  <meta charset="UTF-8" />
+  <title>Admin Login - Christian Brethren Assembly</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <!-- Styles -->
+
+  <link rel="stylesheet" href="../styles/admin-login.css" />
+    <link rel="stylesheet" href="../styles/style.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-	<div class="login-box">
-		<h2>Admin Login</h2>
-		<form id="loginForm">
-			<input type="text" name="username" placeholder="Email or Username"
-				required /> <input type="password" name="password"
-				placeholder="Password" required />
-			<button type="submit">Login</button><br><br>
-			
-			<p class="status" id="statusMessage"></p>
-		</form>
-		<button onclick="goBack()" class="material-back-btn">
-				<span class="material-icons">arrow_back</span> Back
-			</button>
-	</div>
 
-	<script src="../scripts/admin-login.js"></script>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Admin Login</h1>
+      <p>Only for authorized access</p>
+    </div>
+  </header>
+  
+  	<!-- Navigation -->
+	<nav>
+  <div class="nav-links">
+    <a href="../index.html" ><i class="fas fa-home"></i> Home</a>
+    <a href="../songs/all-songs.html"><i class="fas fa-music"></i> All Songs</a>
+    <a href="../index.html#categories"><i class="fas fa-layer-group"></i> Categories</a>
+    <a href="../about-contact.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="..admin/admin-login.html" class="active"><i class="fas fa-user-shield"></i> Admin Login</a>
+  </div>
+</nav>
+
+  <!-- Main Content -->
+  <main class="login-container">
+    <div class="login-box">
+      <h2>Sign In</h2>
+      <form id="loginForm">
+        <input type="text" name="username" placeholder="Email or Username" required />
+        <input type="password" name="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+        <p class="status" id="statusMessage"></p>
+      </form>
+
+      <button onclick="goBack()" class="material-back-btn">
+        <span class="material-icons">arrow_back</span> Back
+      </button>
+    </div>
+  </main>
+
+  <!-- Footer -->
+ <footer>
+		<div class="container">
+			© 2025 Christian Brethren Assembly, Valakom<br /> <span
+				style="font-size: 13px; opacity: 0.8;">To God be the glory,
+				great things He has done.</span>
+		</div>
+	</footer>
+
+  <script src="../scripts/admin-login.js"></script>
 </body>
 </html>

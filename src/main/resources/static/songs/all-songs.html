@@ -7,14 +7,31 @@
   <link rel="stylesheet" href="../styles/style.css" />
   <link rel="stylesheet" href="../styles/all-songs.css" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <h1>All Songs</h1>
-    </div>
-  </header>
+  <!-- Header -->
+	<header>
+		<div class="container">
+			<h1>Christian Brethren Assembly, Valakom</h1>
+			<p>കർത്താവിന്റെ മഹത്വം പാടാം</p>
+			<p class="rotating-verse" id="rotatingVerse"></p>
+
+		</div>
+	</header>
+
+	<!-- Navigation -->
+	<nav>
+  <div class="nav-links">
+    <a href="../index.html" ><i class="fas fa-home"></i> Home</a>
+    <a href="all-songs.html" class="active"><i class="fas fa-music"></i> All Songs</a>
+        <a href="../index.html#categories"><i class="fas fa-layer-group"></i> Categories</a>
+    <a href="../about-contact.html" ><i class="fas fa-info-circle"></i> About</a>
+    <a href="../admin/admin-login.html"><i class="fas fa-user-shield"></i> Admin Login</a>
+  </div>
+</nav>
 
   <main class="container">
     <button onclick="goBack()" class="material-back-btn">
@@ -53,5 +70,6 @@
   </footer>
 
   <script src="../scripts/all-songs.js"></script>
+   <script src="../scripts/rotatingVerse.js"></script>
 </body>
 </html>

@@ -85,22 +85,51 @@ nav {
   flex-wrap: wrap;
   gap: 30px;
 }
-
 .nav-links a {
+  position: relative;
   text-decoration: none;
   color: var(--text);
   font-weight: 600;
   font-size: 16px;
   letter-spacing: 0.4px;
   padding: 6px 10px;
-  border-radius: 6px;
-  transition: color 0.3s ease, background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.3s ease;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: var(--highlight);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
 }
 
 .nav-links a:hover {
-  color: white;
-  background-color: var(--secondary);
+  color: var(--highlight);
 }
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active Page Styling */
+.nav-links a.active {
+  color: var(--highlight);
+  font-weight: 700;
+}
+
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
 
 
 
@@ -266,3 +295,4 @@ footer a:hover {
 .rotating-verse:hover {
   opacity: 1;
 }
+

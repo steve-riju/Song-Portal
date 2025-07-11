@@ -1,21 +1,13 @@
-body {
-  font-family: 'Noto Sans Malayalam', sans-serif;
-  background-color: #f8f9fa;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #003366;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
+/* search.css — Keep this file page-specific */
 
 .container {
   max-width: 960px;
   margin: auto;
   padding: 20px;
+}
+
+main.container {
+  margin-top: 20px;
 }
 
 .song-card {
@@ -49,19 +41,7 @@ header {
   background-color: #004b99;
 }
 
-footer {
-  background-color: #003366;
-  color: white;
-  text-align: center;
-  padding: 15px 0;
-  margin-top: 40px;
-}
-
-
-footer p {
-  margin: 0;
-}
-
+/* Back Button */
 .material-back-btn {
   background-color: transparent;
   border: none;
@@ -85,4 +65,3 @@ footer p {
 .material-back-btn:hover {
   background-color: #e0e0e0;
 }
-

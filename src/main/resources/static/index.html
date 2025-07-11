@@ -12,6 +12,8 @@
 
 <!-- External CSS -->
 <link rel="stylesheet" href="styles/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 
 <body>
@@ -28,13 +30,15 @@
 
 	<!-- Navigation -->
 	<nav>
-		<div class="container nav-links">
-			<a href="index.html">Home</a> <a href="songs/all-songs.html">All
-				Songs</a> <a href="#categories">Categories</a> <a
-				href="about-contact.html">About</a> <a href="admin/admin-login.html">Admin
-				Login</a>
-		</div>
-	</nav>
+  <div class="nav-links">
+    <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+    <a href="songs/all-songs.html"><i class="fas fa-music"></i> All Songs</a>
+    <a href="#categories"><i class="fas fa-layer-group"></i> Categories</a>
+    <a href="about-contact.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="admin/admin-login.html"><i class="fas fa-user-shield"></i> Admin Login</a>
+  </div>
+</nav>
+	
 
 	<!-- Main Content -->
 	<main class="container">
@@ -97,54 +101,8 @@
 	</footer>
 
 	<!-- Script -->
-	<script>
-    document.getElementById("searchForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const query = document.getElementById("searchInput").value.trim();
-      if (query) {
-        window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-
-    document.getElementById("searchBtn").addEventListener("click", () => {
-      const query = document.getElementById("searchInput").value.trim();
-      if (query) {
-        window.location.href = `songs/search.html?q=${encodeURIComponent(query)}`;
-      }
-    });
-
-    document.querySelectorAll(".category-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        const category = button.innerText.trim();
-        window.location.href = `songs/category.html?cat=${encodeURIComponent(category)}`;
-      });
-    });
-    
-    const verses = [
-      '"The Lord is my shepherd; I shall not want." – Psalm 23:1',
-      '"Bless the LORD, O my soul, and all that is within me, bless his holy name!" – Psalm 103:1',
-      '"I will sing to the Lord all my life." – Psalm 104:33',
-      '"He put a new song in my mouth, a hymn of praise to our God." – Psalm 40:3',
-      '"Sing to the Lord, all the earth; proclaim his salvation day after day." – 1 Chronicles 16:23'
-    ];
-
-    let verseIndex = 0;
-    const verseEl = document.getElementById('rotatingVerse');
-
-    function updateVerse() {
-      verseEl.style.opacity = 0;
-      setTimeout(() => {
-        verseEl.textContent = verses[verseIndex];
-        verseEl.style.opacity = 1;
-        verseIndex = (verseIndex + 1) % verses.length;
-      }, 500);
-    }
-
-    updateVerse(); // initial
-    setInterval(updateVerse, 7000); // rotate every 7 seconds
-
-
-  </script>
+  <script src="../scripts/index.js"></script>
+   <script src="../scripts/rotatingVerse.js"></script>
   
 </body>
 </html>

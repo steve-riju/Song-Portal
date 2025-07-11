@@ -38,3 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultsDiv.innerHTML = "<p>Error loading songs.</p>";
     });
 });
+
+function goBack() {
+  window.history.back();
+}

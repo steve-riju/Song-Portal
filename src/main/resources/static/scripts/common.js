@@ -3,9 +3,9 @@ function logout() {
   window.location.href = "../index.html";
 }
 
-// window.onload = function () {
-//   const admin = localStorage.getItem("adminUser");
-//   if (!admin) {
-//     window.location.href = "admin-login.html";
-//   }
-// };
+window.onload = function () {
+  const admin = localStorage.getItem("adminUser");
+  if (!admin) {
+    window.location.href = "admin-login.html";
+  }
+};

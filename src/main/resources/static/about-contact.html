@@ -5,68 +5,10 @@
   <title>About | Song Portal</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles/style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-    :root {
-      --primary: #008080;
-      --bg: #f8fafa;
-      --text: #333;
-      --card: white;
-    }
 
-    [data-theme="dark"] {
-      --primary: #00b3b3;
-      --bg: #1c1c1c;
-      --text: #f1f1f1;
-      --card: #2b2b2b;
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 18px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    header h1 {
-      font-size: 24px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 25px;
-      font-size: 15px;
-    }
-
-    .controls {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-    
-    .toggle-mode {
-      background: white;
-      color: var(--highlight);
-      border: none;
-      padding: 5px 10px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
 
     .section {
       padding: 50px 30px;
@@ -155,45 +97,37 @@
       cursor: pointer;
     }
 
-    footer {
-      background: #273142;
-      color: white;
-      text-align: center;
-      padding: 25px 10px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: underline;
-    }
-
     @media(max-width: 768px) {
       header {
         flex-direction: column;
         align-items: flex-start;
       }
-      nav {
-        margin-top: 10px;
-      }
+
     }
   </style>
 </head>
-<body data-theme="light">
+<body>
 
   <!-- Header -->
-  <header>
-    <h1>Song Portal</h1>
-    <div class="controls">
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about-contact.html">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <button class="toggle-mode" onclick="toggleTheme()">🌓</button>
-    </div>
-  </header>
+	<header>
+		<div class="container">
+			<h1>Christian Brethren Assembly, Valakom</h1>
+			<p>കർത്താവിന്റെ മഹത്വം പാടാം</p>
+			<p class="rotating-verse" id="rotatingVerse"></p>
 
+		</div>
+	</header>
+
+	<!-- Navigation -->
+	<nav>
+  <div class="nav-links">
+    <a href="index.html" ><i class="fas fa-home"></i> Home</a>
+    <a href="songs/all-songs.html"><i class="fas fa-music"></i> All Songs</a>
+    <a href="index.html#categories"><i class="fas fa-layer-group"></i> Categories</a>
+    <a href="about-contact.html" class="active"><i class="fas fa-info-circle"></i> About</a>
+    <a href="admin/admin-login.html"><i class="fas fa-user-shield"></i> Admin Login</a>
+  </div>
+</nav>
   <!-- Intro -->
   <div class="section intro">
     <h2>About SongPortal</h2>
@@ -249,17 +183,15 @@
 
   <!-- JS -->
   <script>
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute("data-theme");
-      body.setAttribute("data-theme", current === "light" ? "dark" : "light");
-    }
 
     function handleContact(e) {
       e.preventDefault();
       document.getElementById("msg").textContent = "Thank you! Your message has been sent.";
     }
+ 
   </script>
+  	<!-- Script -->
+ <script src="../scripts/rotatingVerse.js"></script>
 
 </body>
 </html>
