@@ -1,16 +1,3 @@
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0;
-  background-color: #f4f6f9;
-  color: #333;
-}
-
-header {
-  background-color: #003366;
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
 
 .container {
   max-width: 1200px;
@@ -63,16 +50,33 @@ table th, table td {
 .dashboard-actions button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #004080;
-  color: white;
+  background-color: #f9f7f1;
+  color: 2c2c2c;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
+.dashboard-actions button::after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: #fefae0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease-in-out;
+}
+
 .dashboard-actions button:hover {
-  background-color: #0066cc;
+  background-color: #fefae0;
+}
+
+.dashboard-actions button:hover::after {
+  transform: scaleX(1);
 }
 
 .logout-btn {

@@ -1,5 +1,5 @@
 .top-bar {
-	display: flex;
+	display: inline;
 	justify-content: space-between;
 	align-items: center;
 	flex-wrap: wrap;
@@ -14,15 +14,17 @@
 .btn {
 	padding: 10px 16px;
 	font-size: 15px;
-	background-color: #0066cc;
+	background-color: #d4a373;
 	color: white;
 	border: none;
-	border-radius: 5px;
+	border-radius: 12px;
 	cursor: pointer;
+	transition: background-color 0.3s ease;
+
 }
 
 .btn:hover {
-	background-color: #004c99;
+	background-color: #b2784a;
 }
 
 table {
@@ -59,7 +61,7 @@ th, td {
 }
 
 .modal-content {
-	background: #fff;
+	background: #f9f7f1;
 	margin: 2% auto; /* Less top margin for taller modal */
 	padding: 30px; /* More padding for spacious form */
 	width: 95%; /* Increased width */
@@ -75,6 +77,8 @@ th, td {
 	width: 100%;
 	margin: 8px 0;
 	padding: 8px;
+	border: 1px solid #ccc;
+  border-radius: 12px;
 }
 
 .close-btn {

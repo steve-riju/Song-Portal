@@ -6,18 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../styles/dashboard.css">
   <link rel="stylesheet" href="../styles/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 </head>
 <body>
-  <header>
-  <h1>Admin Dashboard</h1>
-  <button class="logout-btn" onclick="logout()">🚪 Logout</button>
-</header>
+<!-- Header -->
+	<header>
+		<div class="container">
+			<h1>Admin Dashboard</h1>
+			<p>കർത്താവിന്റെ മഹത്വം പാടാം</p>
+			<p class="rotating-verse" id="rotatingVerse"></p>
+      <button class="logout-btn" onclick="logout()">🚪 Logout</button>
+		</div>
+	</header>
 
+	<!-- Navigation -->
+	<nav>
+  <div class="nav-links">
+    <a href="../index.html" onclick="logout()"><i class="fas fa-home"></i> Home</a>
+    <a href="../songs/all-songs.html" onclick="logout()"><i class="fas fa-music"></i> All Songs</a>
+    <a href="../index.html#categories" onclick="logout()"><i class="fas fa-layer-group"></i> Categories</a>
+    <a href="../about-contact.html" onclick="logout()"><i class="fas fa-info-circle"></i> About</a>
+  </div>
+</nav>
 
   <main class="container">
 
-    <!-- Navigation Buttons -->
+    <!-- Action Buttons -->
     <section class="dashboard-actions">
       <button onclick="location.href='admin-add-song.html'">➕ Add Song</button>
       <button onclick="location.href='manage-songs.html'">🎵 Manage Songs</button>
@@ -58,5 +73,6 @@
 
   <script src="../scripts/common.js"></script>
   <script src="../scripts/dashboard.js"></script>
+     <script src="../scripts/rotatingVerse.js"></script>
 </body>
 </html>

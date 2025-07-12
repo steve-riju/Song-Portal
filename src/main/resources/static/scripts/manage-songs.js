@@ -72,6 +72,7 @@ document.getElementById('editSongForm').addEventListener('submit', function (e) 
   const songNo = form.id.value;
 
   let lyricsMalayalam = form.lyricsMalayalam.value.trim();
+  let lyricsManglish = form.lyricsManglish.value.trim();
   const author = form.author.value.trim();
 
   // ✅ Smart author tag handling
@@ -92,6 +93,24 @@ document.getElementById('editSongForm').addEventListener('submit', function (e) 
     }
 
     lyricsMalayalam = lines.join('\n');
+
+    const linesManglish = lyricsManglish.trim().split('\n');
+    const lastLineManglish = linesManglish[linesManglish.length - 1].trim();
+
+    if (lastLineManglish.startsWith('---')) {
+      const existingAuthor = lastLineManglish.replace(/^---/, '').trim();
+      if (existingAuthor !== author) {
+        // Replace old author with new one
+        linesManglish[linesManglish.length - 1] = `---${author}`;
+
+      }
+      // else: author is same, do nothing
+    } else {
+      // No author tag at the end, so append
+      linesManglish.push(`---${author}`);
+    }
+    lyricsManglish = linesManglish.join('\n');
+    console.log("Updated lyricsManglish: " + lyricsManglish);
   }
 
 
@@ -99,7 +118,7 @@ document.getElementById('editSongForm').addEventListener('submit', function (e) 
     title: form.title.value.trim(),
     category: form.category.value.trim(),
     lyricsMalayalam: lyricsMalayalam,
-    lyricsManglish: form.lyricsManglish.value.trim(),
+    lyricsManglish: lyricsManglish,
     author: author,
   };
 

@@ -1,8 +1,12 @@
 :root {
-  --primary: #3a5a40;         /* Deep olive green for spiritual calm */
-  --secondary: #a3b18a;       /* Gentle sage for peace */
-  --accent: #fefae0;          /* Light parchment */
-  --highlight: #d4a373;       /* Warm gold tone */
+  --primary: #3a5a40;
+  /* Deep olive green for spiritual calm */
+  --secondary: #a3b18a;
+  /* Gentle sage for peace */
+  --accent: #fefae0;
+  /* Light parchment */
+  --highlight: #d4a373;
+  /* Warm gold tone */
   --text: #2c2c2c;
   --bg: #f9f7f1;
   --border-radius: 12px;
@@ -25,7 +29,7 @@ body {
 /* ===== Header ===== */
 header {
   background: linear-gradient(to bottom, #234e70 5%, transparent),
-            url('../assets/images/bg.jpg');
+    url('../assets/images/bg.jpg');
 
   background-repeat: no-repeat, repeat;
   background-size: cover, auto;
@@ -74,7 +78,8 @@ header::after {
 
 /* ===== Updated Navigation ===== */
 nav {
-  background-color: var(--bg); /* Match page background */
+  background-color: var(--bg);
+  /* Match page background */
   padding: 10px 0;
   position: relative;
 }
@@ -85,6 +90,7 @@ nav {
   flex-wrap: wrap;
   gap: 30px;
 }
+
 .nav-links a {
   position: relative;
   text-decoration: none;
@@ -243,7 +249,8 @@ footer a:hover {
 
 /* ===== Fade Animation (optional) ===== */
 .category-btn,
-.search-box {
+.search-box,
+.container {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
@@ -252,6 +259,7 @@ footer a:hover {
 .category-btn:nth-child(odd) {
   animation-delay: 0.2s;
 }
+
 .category-btn:nth-child(even) {
   animation-delay: 0.3s;
 }
@@ -295,4 +303,3 @@ footer a:hover {
 .rotating-verse:hover {
   opacity: 1;
 }
-
