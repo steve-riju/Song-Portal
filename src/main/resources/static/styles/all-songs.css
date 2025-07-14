@@ -15,7 +15,9 @@ th, td {
   padding: 10px;
   text-align: left;
 }
-
+td{
+  font-weight: 500;
+}
 th {
   background-color: #f8f8f8;
 }
@@ -23,15 +25,24 @@ th {
 .pagination {
   margin-top: 1rem;
   text-align: center;
+  font-weight: 600;
 }
 
 .pagination button {
-  padding: 8px 16px;
-  margin: 0 5px;
-  font-size: 1rem;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #d4a373;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 
+.pagination button:hover {
+  background-color: #b2784a;
+}
 .material-back-btn {
   background-color: transparent;
   border: none;
@@ -63,7 +74,7 @@ th {
 }
 
 .song-link {
-  color: #0066cc;
+  color: #d4a373;
   text-decoration: none;
   font-weight: 500;
 }
