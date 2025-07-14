@@ -1,0 +1,11 @@
+{
+  "name": "song-portal",
+  "deploy": {
+    "strategy": "git"
+  },
+  "instances": 1,
+  "instance_type": "S",
+  "env": {
+    "JAVA_VERSION": "17"
+  }
+}
