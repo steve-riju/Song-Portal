@@ -1,8 +1,4 @@
 {
-  "deploy": [
-    "echo '🎯 Deploy hook running...'",
-    "pwd && ls -la",
-    "mvn clean package -DskipTests"
-  ],
-  "start": "echo '🚀 Starting App...' && ls target && mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=$PORT"
+  "build": ["mvn", "clean", "install", "-DskipTests"],
+  "start": ["java", "-jar", "target/Song-Portal-0.0.1-SNAPSHOT.jar"]
 }
