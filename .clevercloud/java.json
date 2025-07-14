@@ -1,5 +1,6 @@
 {
   "deploy": [
+    "echo '🎯 Deploy hook running...'",
     "mvn clean install -DskipTests"
   ],
   "start": "mvn spring-boot:run -Dspring-boot.run.arguments=--server.port=$PORT"
