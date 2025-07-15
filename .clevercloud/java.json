@@ -1,4 +1,0 @@
-{
-  "build": ["mvn", "clean", "install", "-DskipTests"],
-  "start": ["java", "-jar", "target/Song-Portal-0.0.1-SNAPSHOT.jar"]
-}

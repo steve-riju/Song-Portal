@@ -49,14 +49,6 @@
       <optional>true</optional>
     </dependency>
 
-    <!-- DevTools (for hot-reload during development) -->
-    <!-- <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-devtools</artifactId>
-      <scope>runtime</scope>
-      <optional>true</optional>
-    </dependency> -->
-
     <!-- Testing -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -89,6 +81,14 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <version>3.5.3</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>repackage</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <excludes>
             <exclude>
@@ -98,19 +98,6 @@
           </excludes>
         </configuration>
       </plugin>
-      <!-- Repackage Plugin for executable JARs -->
-      <plugin>
-  <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-maven-plugin</artifactId>
-  <version>3.2.5</version>
-  <executions>
-    <execution>
-      <goals>
-        <goal>repackage</goal>
-      </goals>
-    </execution>
-  </executions>
-</plugin>
     </plugins>
   </build>
 </project>
