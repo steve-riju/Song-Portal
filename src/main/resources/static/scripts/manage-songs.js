@@ -110,7 +110,6 @@ document.getElementById('editSongForm').addEventListener('submit', function (e) 
       linesManglish.push(`---${author}`);
     }
     lyricsManglish = linesManglish.join('\n');
-    console.log("Updated lyricsManglish: " + lyricsManglish);
   }
 
 

@@ -51,7 +51,8 @@ public class SongController {
 	
 	@GetMapping("category")
 	public List<Song> getByCategory(@RequestParam String cat) {
-	    return songRepository.findByCategory(cat);
+//	    return songRepository.findByCategory(cat);
+		return songRepository.findByCategoryOrderBySongNo(cat);
 	}
 
 

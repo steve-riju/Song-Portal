@@ -21,7 +21,9 @@ public interface SongRepository extends JpaRepository<Song, Long> {
 	List<Song> findAllByOrderBySongNoAsc();
 	
 	List<Song> findByCategory(String category);
-
-
+	
+	@Query(value = "SELECT * FROM song WHERE category = :category ORDER BY song_no", nativeQuery = true)
+	List<Song> findByCategoryOrderBySongNo(@Param("category") String category);
+	
 
 }

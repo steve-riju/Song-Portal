@@ -1,7 +1,7 @@
 let currentLanguage = "malayalam";
 let lyricsMalayalam = [];
 let lyricsManglish = [];
-let lines = [];
+let currentSongNo = null;
 
 document.addEventListener("DOMContentLoaded", () => {
   const id = new URLSearchParams(window.location.search).get("id");
@@ -16,7 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("langBtn").innerText =
       savedLang === "malayalam" ? "Switch to English" : "Switch to Malayalam";
   }
-  fetch(`/api/songs/by-songno/${id}`)  // Treat "id" as songNo
+
+  fetch(`/api/songs/by-songno/${id}`)
     .then(res => res.json())
     .then(song => {
       console.log("Fetched song:", song);
@@ -26,22 +27,24 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
+      currentSongNo = parseInt(song.songNo);
       document.getElementById("songTitle").innerText = song.title;
       document.getElementById("songMeta").innerText = `Song No: ${song.songNo} | Category: ${song.category}`;
 
-      // Make sure we split lines properly
       lyricsMalayalam = (song.lyricsMalayalam || "").split("\n");
       lyricsManglish = (song.lyricsManglish || "").split("\n");
 
       updateLyrics();
-    })
 
+      // Disable Prev button if first song
+      if (currentSongNo <= 1) {
+        document.querySelector('button[onclick="prevSong()"]').disabled = true;
+      }
+    })
     .catch(err => {
       console.error(err);
       document.getElementById("lyricsContainer").innerText = "Error loading song.";
     });
-
-
 });
 
 function updateLyrics() {
@@ -80,7 +83,6 @@ function changeFontSize(change) {
 
 function formatLyrics(lines) {
   if (!Array.isArray(lines)) return "<p>Invalid lyrics format</p>";
-  console.log("Formatting lyrics:");
   const output = [];
   let isChorus = false;
   let chorusBuffer = [];
@@ -92,7 +94,6 @@ function formatLyrics(lines) {
       isChorus = true;
       chorusBuffer.push(line.replace("[Chorus]", "").trim());
     } else if (isChorus && (/^\d+\./.test(line) || line.startsWith("---") || line === "")) {
-      // End of chorus block and flush it
       if (chorusBuffer.length > 0) {
         output.push(`
           <div class="chorus">
@@ -104,7 +105,6 @@ function formatLyrics(lines) {
       }
       isChorus = false;
 
-      // Also handle current line
       if (/^\d+\./.test(line)) {
         output.push(`
           <div class="stanza">
@@ -133,7 +133,6 @@ function formatLyrics(lines) {
     }
   }
 
-  // Flush any remaining chorus at end
   if (chorusBuffer.length > 0) {
     output.push(`
       <div class="chorus">
@@ -146,23 +145,26 @@ function formatLyrics(lines) {
   return output.join("");
 }
 
+// Navigation Controls
+function nextSong() {
+  if (currentSongNo != null) {
+    const nextNo = currentSongNo + 1;
+    window.location.href = `view-song.html?id=${nextNo}`;
+  }
+}
 
-
-// Keyboard controls
-document.addEventListener("keydown", (e) => {
-  if (e.key === "m" || e.key === "M") switchLanguage();
-  else if (e.key === "f" || e.key === "F") togglePresentation();
-  else if (e.key === "+") changeFontSize(2);
-  else if (e.key === "-") changeFontSize(-2);
-  else if (e.key === "s" || e.key === "S") toggleAutoScroll();
-
-});
+function prevSong() {
+  if (currentSongNo != null && currentSongNo > 1) {
+    const prevNo = currentSongNo - 1;
+    window.location.href = `view-song.html?id=${prevNo}`;
+  }
+}
 
 function goBack() {
   window.history.back();
 }
 
-
+// Auto Scroll
 let autoScrollActive = false;
 let scrollSpeed = 0.4;
 let animationFrameId = null;
@@ -181,19 +183,23 @@ function smoothScroll() {
 }
 
 function toggleAutoScroll() {
-  //const button = document.querySelector("button");
   autoScrollActive = !autoScrollActive;
 
   if (autoScrollActive) {
     smoothScroll();
-    //button.innerText = "Stop Scroll";
   } else {
     cancelAnimationFrame(animationFrameId);
     animationFrameId = null;
-    //button.innerText = "Start Scroll";
   }
 }
 
-
-
-
+// Keyboard Shortcuts
+document.addEventListener("keydown", (e) => {
+  if (e.key === "m" || e.key === "M") switchLanguage();
+  else if (e.key === "f" || e.key === "F") togglePresentation();
+  else if (e.key === "+") changeFontSize(2);
+  else if (e.key === "-") changeFontSize(-2);
+  else if (e.key === "s" || e.key === "S") toggleAutoScroll();
+  else if (e.key === "ArrowRight") nextSong();
+  else if (e.key === "ArrowLeft") prevSong();
+});

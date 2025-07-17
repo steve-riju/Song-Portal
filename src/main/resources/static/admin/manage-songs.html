@@ -2,14 +2,16 @@
 <html lang="ml">
 
 <head>
-	<meta charset="UTF-8" />
-	<title>Manage Songs</title>
+<meta charset="UTF-8" />
+<title>Manage Songs</title>
 
-	<link rel="stylesheet" href="../styles/manage-songs.css" />
-	<link rel="stylesheet" href="../styles/style.css" />
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<link rel="stylesheet" href="../styles/manage-songs.css" />
+<link rel="stylesheet" href="../styles/style.css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+	rel="stylesheet">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/x-icon" href="../assets/images/icon.jpg">
 </head>
 
 <body>
@@ -25,10 +27,13 @@
 	<!-- Navigation -->
 	<nav>
 		<div class="nav-links">
-			<a href="../index.html" onclick="logout()"><i class="fas fa-home"></i> Home</a>
-			<a href="../songs/all-songs.html" onclick="logout()"><i class="fas fa-music"></i> All Songs</a>
-			<a href="../index.html#categories" onclick="logout()"><i class="fas fa-layer-group"></i> Categories</a>
-			<a href="../about-contact.html" onclick="logout()"><i class="fas fa-info-circle"></i> About</a>
+			<a href="../index.html" onclick="logout()"><i class="fas fa-home"></i>
+				Home</a> <a href="../songs/all-songs.html" onclick="logout()"><i
+				class="fas fa-music"></i> All Songs</a> <a
+				href="../index.html#categories" onclick="logout()"><i
+				class="fas fa-layer-group"></i> Categories</a> <a
+				href="../about-contact.html" onclick="logout()"><i
+				class="fas fa-info-circle"></i> About</a>
 		</div>
 	</nav>
 
@@ -38,9 +43,12 @@
 		</button>
 		<div class="top-bar">
 			<div class="search-group">
-				<input type="text" id="searchInput" placeholder="Search by title, lyrics or song number..." />
+				<input type="text" id="searchInput"
+					placeholder="Search by title, lyrics or song number..." />
 				<button class="btn" onclick="searchSongs()">Search</button>
-				<button class="btn" onclick="window.location.href='admin-add-song.html'">➕ Add Song</button>
+				<button class="btn"
+					onclick="window.location.href='admin-add-song.html'">➕ Add
+					Song</button>
 			</div>
 		</div>
 
@@ -68,11 +76,14 @@
 	<!-- Edit Modal -->
 	<div id="editModal" class="modal">
 		<div class="modal-content">
-			<button class="close-btn" onclick="closeModal()">×</button>
+			<button class="close-btn" onclick="closeModal()">X</button>
 			<h3>Edit Song</h3>
 			<form id="editSongForm">
-				<input type="hidden" name="id" /> <label>Title:</label> <input type="text" name="title" required />
-				<label>Category:</label> <select name="category" required>
+				<input type="hidden" name="id" /> 
+				<label>Title:</label> 
+				<input type="text" name="title" required /> 
+				<label>Category:</label> 
+				<select name="category" required>
 					<option value="">-- Select Category --</option>
 					<option value="സ്തോത്ര ഗീതങ്ങൾ">സ്തോത്ര ഗീതങ്ങൾ</option>
 					<option value="ആരാധനാഗീതങ്ങൾ">ആരാധനാഗീതങ്ങൾ</option>

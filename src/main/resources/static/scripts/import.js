@@ -18,10 +18,14 @@ document.getElementById("importForm").addEventListener("submit", async function 
       method: "POST",
       body: formData
     });
-
     const text = await response.text();
-    statusMessage.textContent = text;
+    statusMessage.textContent = text;	
     statusMessage.style.color = response.ok ? "green" : "red";
+	if (response.ok){
+	setTimeout(() => {
+		      statusMessage.textContent = '';
+		    }, 3000);
+			}
   } catch (error) {
     statusMessage.textContent = "❌ Upload failed: " + error.message;
     statusMessage.style.color = "red";

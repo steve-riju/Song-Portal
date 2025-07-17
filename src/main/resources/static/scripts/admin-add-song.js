@@ -45,12 +45,19 @@ document.getElementById("addSongForm").addEventListener("submit", function (e) {
       status.innerText = "✅ Song added successfully!";
       status.style.color = "green";
       e.target.reset();
+	  setTimeout(() => {
+	      status.innerText = '';
+	    }, 3000);
     })
     .catch((err) => {
       const status = document.getElementById("statusMessage");
       status.innerText = "❌ " + err.message;
       status.style.color = "red";
+	  setTimeout(() => {
+	      status.innerText = '';
+	    }, 3000);
     });
+	
 });
 
 function goBack() {
