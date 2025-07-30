@@ -20,6 +20,7 @@ public class Song {
 
 	@Column(unique = true, nullable = false)
 	private Long songNo;
+	@Column(columnDefinition = "VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci")
 	private String title;
 	private String category;
 	private String author;
