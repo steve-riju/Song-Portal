@@ -1,4 +1,4 @@
-/* search.css — Keep this file page-specific */
+/* search.css — */
 
 .container {
   max-width: 960px;
@@ -6,13 +6,19 @@
   padding: 20px;
 }
 
-main.container {
-  margin-top: 20px;
-}
 
 .song-card {
+  margin-left: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
   border-bottom: 1px solid #ddd;
   padding: 15px 0;
+}
+
+.song-card:hover {
+  background-color: #f0f0f0;
 }
 
 .song-title {

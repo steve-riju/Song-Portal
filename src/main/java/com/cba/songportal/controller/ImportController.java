@@ -33,6 +33,8 @@ public class ImportController {
                 if (line.isEmpty() || line.startsWith("--")) continue;
 
                 statement.append(line).append(" ");
+                System.out.println("-----------SQL query imported----------");
+                System.out.println(statement.toString());
                 if (line.endsWith(";")) {
                     jdbcTemplate.execute(statement.toString());
                     statement.setLength(0); // reset

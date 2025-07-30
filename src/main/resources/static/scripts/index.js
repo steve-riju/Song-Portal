@@ -19,4 +19,11 @@ document.getElementById("searchForm").addEventListener("submit", function(e) {
         window.location.href = `songs/category.html?cat=${encodeURIComponent(category)}`;
       });
     });
+
+    document.querySelectorAll(".alpha-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        const alpha = button.innerText.trim();
+        window.location.href = `songs/alpha-index.html?alpha=${encodeURIComponent(alpha)}`;
+      });
+    });
     

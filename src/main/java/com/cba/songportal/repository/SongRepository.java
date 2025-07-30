@@ -25,5 +25,10 @@ public interface SongRepository extends JpaRepository<Song, Long> {
 	@Query(value = "SELECT * FROM song WHERE category = :category ORDER BY song_no", nativeQuery = true)
 	List<Song> findByCategoryOrderBySongNo(@Param("category") String category);
 	
+	@Query(value = "SELECT * FROM song WHERE title LIKE :alpha% ORDER BY title COLLATE utf8mb4_general_ci", nativeQuery = true)
+	List<Song> findByTitleStartingWith(@Param("alpha") String alpha);
+
+
+	
 
 }

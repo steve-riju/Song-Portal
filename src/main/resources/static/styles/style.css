@@ -228,6 +228,26 @@ main.container {
   transform: translateY(-3px);
 }
 
+.alpha-btn {
+  padding: 16px 20px;
+  background-color: var(--accent);
+  border: none;
+  border-radius: var(--border-radius);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  color: #333;
+}
+
+.alpha-btn:hover {
+  background-color: var(--highlight);
+  color: white;
+  transform: translateY(-3px);
+}
+
 /* ===== Footer ===== */
 footer {
   background-color: #3a5a40;

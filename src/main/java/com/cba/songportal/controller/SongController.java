@@ -51,10 +51,13 @@ public class SongController {
 	
 	@GetMapping("category")
 	public List<Song> getByCategory(@RequestParam String cat) {
-//	    return songRepository.findByCategory(cat);
 		return songRepository.findByCategoryOrderBySongNo(cat);
 	}
-
+	
+	@GetMapping("/alpha")
+	public List<Song> getByStartingLetter(@RequestParam String alpha) {
+	    return songRepository.findByTitleStartingWith(alpha);
+	}
 
 
 	@GetMapping("/by-songno/{songNo}")
@@ -78,7 +81,6 @@ public class SongController {
 	}
 
 
-	// In SongController
 
 	@GetMapping("/total")
 	public Map<String, Object> getTotalSongs() {

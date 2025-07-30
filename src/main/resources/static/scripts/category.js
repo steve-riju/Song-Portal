@@ -23,12 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
       data.forEach(song => {
         const card = document.createElement("div");
         card.className = "song-card";
+        card.setAttribute("data-song-id", song.songNo);
 
         card.innerHTML = `
           <div class="song-title">${song.title}</div>
           <div class="song-meta">Song No: ${song.songNo} | Category: ${song.category}</div>
-          <button onclick="window.location.href='view-song.html?id=${song.songNo}'" class="view-btn">View</button>
+          <button class="view-btn">View</button>
         `;
+
+        // Make entire card clickable (excluding the View button)
+        card.addEventListener("click", (e) => {
+          if (e.target.classList.contains("view-btn")) return;
+          window.location.href = `view-song.html?id=${song.songNo}`;
+        });
+
+        // Button click (optional fallback)
+        card.querySelector(".view-btn").addEventListener("click", () => {
+          window.location.href = `view-song.html?id=${song.songNo}`;
+        });
 
         resultsDiv.appendChild(card);
       });

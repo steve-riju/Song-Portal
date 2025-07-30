@@ -1,22 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const queryParam = new URLSearchParams(window.location.search).get("q");
+  const categoryParam = new URLSearchParams(window.location.search).get("alpha");
   const resultsDiv = document.getElementById("results");
-  const queryText = document.getElementById("searchQueryText");
+  const categoryName = document.getElementById("categoryName");
 
-  if (!queryParam) {
-    resultsDiv.innerHTML = "<p>No search query provided.</p>";
+  if (!categoryParam) {
+    resultsDiv.innerHTML = "<p>No alphabets selected.</p>";
     return;
   }
 
-  queryText.innerHTML = `Showing results for: <strong>${decodeURIComponent(queryParam)}</strong>`;
+  categoryName.innerHTML = `Showing songs for: <strong>${decodeURIComponent(categoryParam)}</strong>`;
 
-  fetch(`/api/songs/search?q=${encodeURIComponent(queryParam)}`)
+  fetch(`/api/songs/alpha?alpha=${encodeURIComponent(categoryParam)}`)
     .then(res => res.json())
     .then(data => {
       resultsDiv.innerHTML = "";
 
       if (data.length === 0) {
-        resultsDiv.innerHTML = "<p>No songs found.</p>";
+        resultsDiv.innerHTML = "<p>No songs found in starting with this alphabet.</p>";
         return;
       }
 
@@ -31,14 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
           <button class="view-btn">View</button>
         `;
 
-        // Entire card is clickable
+        // Make entire card clickable (excluding the View button)
         card.addEventListener("click", (e) => {
-          // Prevent navigation if button inside was clicked
           if (e.target.classList.contains("view-btn")) return;
           window.location.href = `view-song.html?id=${song.songNo}`;
         });
 
-        // Button works normally
+        // Button click (optional fallback)
         card.querySelector(".view-btn").addEventListener("click", () => {
           window.location.href = `view-song.html?id=${song.songNo}`;
         });
@@ -47,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch(err => {
-      console.error("Search error:", err);
-      resultsDiv.innerHTML = "<p>Error loading results.</p>";
+      console.error("Alpha Song fetch error: ", err);
+      resultsDiv.innerHTML = "<p>Error loading songs.</p>";
     });
 });
 
